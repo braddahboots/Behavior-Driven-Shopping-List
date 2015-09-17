@@ -3,10 +3,10 @@ var should = chai.should();
 
 describe('ShoppingListItem', function() {
 
-  var item;
+  var poke;
 
   beforeEach(function() {
-     item = new ShoppingListItem('name', 'description');
+    poke = new ShoppingListItem('poke', 'daBomb');
   });
 
   it('should be a function', function() {
@@ -14,14 +14,42 @@ describe('ShoppingListItem', function() {
   });
 
   it('should have a property name', function() {
-    item.name.should.equal('name');
+    poke.name.should.equal('poke');
   });
 
   it('should have a property description', function() {
-    item.description.should.equal('description');
+    poke.description.should.equal('daBomb');
   });
 
   it('should have a property is_done', function() {
-    item.is_done.should.equal('is_done');
+    expect(item.is_done).should.equal.false;
   });
-}); // end ShoppingListItem
+}); // end ShoppingListItem class
+
+describe('check', function() {
+
+  it('should be a function', function() {
+    expect(check).to.be.a('function');
+  });
+
+  it('should set is_done to true', function() {
+    var poke = new ShoppingListItem('poke', 'daBomb');
+    expect(poke instanceof ShoppingListItem).to.be.true;
+  });
+});
+
+describe('uncheck', function() {
+
+  it('should be a function', function() {
+    expect(uncheck).to.be.a('function');
+  });
+
+  it('should set is_done to false', function() {
+    var poke = new ShoppingListItem('poke', 'daBomb');
+    expect(poke instanceof ShoppingListItem).to.be.false;
+  });
+});
+
+describe('render', function() {
+
+});
