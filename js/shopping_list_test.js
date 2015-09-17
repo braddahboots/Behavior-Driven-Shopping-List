@@ -66,10 +66,12 @@ describe('ShoppingListItem', function() {
 describe('ShoppingList', function() {
 
   var list;
+  var listItem;
 
   beforeEach(function() {
     list = new ShoppingList();
     listItem = new ShoppingListItem('beer','for programming');
+    listItem2 = new ShoppingListItem('donuts', 'everyone likes donuts');
   });
 
 
@@ -86,7 +88,27 @@ describe('ShoppingList', function() {
 
     it('invoke addItem by passing in ShoppingListItem', function() {
       list.addItem(listItem);
-      expect(list.items, 'expected to be in the items array').to.have.deep.property('beer', 'for programming;')
+      expect(list.items, 'expected to be in the items array').to.deep.equal([listItem]);
+    });
+
+    it('pass object into addItem', function() {
+      expect(list.addItem).to.throw(Error);
+    });
+  });
+  describe('removeItem', function() {
+
+    it('invoke removeItem by passing in an object to remove', function() {
+      list.removeItem(listItem);
+      expect(list.items, 'expted to remove an object for the array').to.deep.equal([listItem]);
+    });
+
+    it('remove the last item added to array', function() {
+      list.removeItem();
+      expect(list.removeItem).to.equal(listItem);
+    });
+
+    it('pass object into removeItem', function() {
+      expect(list.removeItem).to.throw(Error);
     });
   });
 });
