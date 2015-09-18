@@ -9,9 +9,9 @@ ShoppingListItem.prototype.check = function() {
 };
 
 ShoppingListItem.prototype.uncheck = function() {
-  this.is_done =  false;
+  this.is_done = false;
 };
 
 ShoppingListItem.prototype.render = function() {
-
+  return '<li class="completed_' + this.is_done + ' ><span> ' + this.name + ' </span><span> ' + this.description + ' </span></li>';
 };

@@ -58,7 +58,9 @@ describe('ShoppingListItem', function() {
     });
 
     it('should return html link', function() {
-      var renderHTML = '<ul> \ <li class="completed_false"> \ <span>poke</span> \ <span>daBomb.</span> \ </li> \ <ul>';
+      var render = poke.render();
+      poke.render().should.equal('<li class="completed_false ><span> poke </span><span> daBomb </span></li>');
+
     });
   });
 }); // end ShoppingListItem class
@@ -67,6 +69,7 @@ describe('ShoppingList', function() {
 
   var list;
   var listItem;
+  var listItem2;
 
   beforeEach(function() {
     list = new ShoppingList();
@@ -86,31 +89,57 @@ describe('ShoppingList', function() {
 
   describe('addItem', function() {
 
-    it('invoke addItem by passing in ShoppingListItem', function() {
+    it('invoke addItem by passing in object', function() {
       list.addItem(listItem);
       expect(list.items, 'expected to be in the items array').to.deep.equal([listItem]);
     });
 
-    it('pass object into addItem', function() {
+    it('throw error if not an object within list', function() {
       expect(list.addItem).to.throw(Error);
     });
   });
+
   describe('removeItem', function() {
+
+    beforeEach(function() {
+      list.addItem(listItem);
+      list.addItem(listItem2);
+    });
 
     it('invoke removeItem by passing in an object to remove', function() {
       list.removeItem(listItem);
-      expect(list.items, 'expted to remove an object for the array').to.deep.equal([listItem]);
+      expect(list.items, 'expted to remove an object for the array').to.deep.equal([listItem2]);
     });
 
     it('remove the last item added to array', function() {
       list.removeItem();
-      expect(list.removeItem).to.equal(listItem);
+      expect(list.items).to.deep.equal([listItem]);
     });
 
-    it('pass object into removeItem', function() {
+    it('throw error', function() {
       expect(list.removeItem).to.throw(Error);
     });
   });
+
+  describe('render', function() {
+
+    beforeEach(function() {
+      list.addItem(listItem);
+      list.addItem(listItem2);
+    });
+
+    it('should be a function', function() {
+      expect(list.render).to.be.a('function');
+    });
+
+    it('should return string of ShoppingList', function() {
+      console.log(list.render());
+      var test1 = listItem.render();
+      var test2 = listItem2.render();
+      list.render().should.equal('<ul> <li class="completed_false ><span> beer </span><span> for programming </span></li> <li class="completed_false ><span> donuts </span><span> everyone likes donuts </span></li> </ul>');
+    });
+  });
+
 });
 
 
