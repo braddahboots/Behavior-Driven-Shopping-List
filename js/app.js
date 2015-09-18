@@ -19,7 +19,9 @@ function add_to_shopping_list() {
   safeWay.addItem(new_shopping_list_item);
 
   //pushes the new object to my html via div
-  document.getElementById('content').innerHTML = safeWay.render();
+  var list = safeWay.render();
+  console.log(list);
+  document.getElementById('content').innerHTML = list;
 }
 
 

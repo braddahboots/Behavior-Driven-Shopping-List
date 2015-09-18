@@ -31,6 +31,6 @@ ShoppingList.prototype.render = function() {
     // console.log(listItems.push(this.items[i].render()));
   }
   var strList = listItems.join(' ');
-
-  return ('<ul> ' +  strList + ' </ul>');
+  console.log(strList);
+  return '<ul>' +  strList + '</ul>';
 };
