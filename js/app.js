@@ -1,13 +1,13 @@
 var safeWay = new ShoppingList();
 var myList = safeWay.render();
 
-// console.log(myList);
+console.log(myList);
 document.getElementById('content').innerHTML = myList;
 // console.log(myList);
 
 //should take in input from the two text fields in html form
 function add_to_shopping_list() {
-  console.log("faka")
+  // console.log("faka")
   //pull the value from the title form
   var title = document.getElementById('title').value;
 
@@ -16,7 +16,7 @@ function add_to_shopping_list() {
 
   //run the value of both title and description in a new instance of Shopping List Item (creates an objec)
   var new_shopping_list_item = new ShoppingListItem(title, description);
-
+  console.log(new_shopping_list_item);
   //adds the new shopping list item to the safway shopping list
   safeWay.addItem(new_shopping_list_item);
 
