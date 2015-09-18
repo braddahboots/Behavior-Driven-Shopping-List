@@ -25,12 +25,9 @@ ShoppingList.prototype.removeItem = function(obj) {
 ShoppingList.prototype.render = function() {
   var listItems = [];
 
-
   for(var i = 0; i < this.items.length; i++) {
     listItems.push(this.items[i].render());
   }
-
   var strList = listItems.join(' ');
-
   return ('<ul> ' +  strList + ' </ul>');
 };
