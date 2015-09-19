@@ -26,6 +26,7 @@ function add_to_shopping_list() {
 
 function changeCheckedStatus(idx) {
   //Get the DOM index of the current object
+  // debugger;
   var index = document.getElementById("list_check_" + idx);
 
   //assigns the current object to a variable
@@ -39,14 +40,18 @@ function changeCheckedStatus(idx) {
   }
 
   var list = safeWay.render();
+
+  document.getElementById('content').innerHTML = list;
 }
 
 function removeItemButtonClicked(idx) {
   //Get the DOM index of the currnet object
   console.log(idx);
 
-
+  //assign the current object to a variable
   var curItem = safeWay.items[idx];
+
+  //remove current object from array
   safeWay.removeItem(curItem);
 
   var list = safeWay.render();

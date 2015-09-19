@@ -1,6 +1,6 @@
 function ShoppingList(items){
   this.items = [];
-  console.log("hello",this.items);
+  // console.log("hello",this.items);
 }
 ShoppingList.prototype.addItem = function(obj) {
   if(!(obj instanceof ShoppingListItem)) {
@@ -28,7 +28,7 @@ ShoppingList.prototype.render = function() {
   // console.log('this is what you want',listItems);
   for(var i = 0; i < this.items.length; i++) {
     listItems.push(this.items[i].render(i));
-    console.log("maybe here",listItems);
+    // console.log("maybe here",listItems);
   }
   var strList = listItems.join(' ');
   console.log(strList);

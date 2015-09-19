@@ -1,0 +1,31 @@
+h1
+{
+  font: "Helvetica";
+  font-weight: bold;
+  font-size: 60px;
+}
+
+.header
+{
+  font: "Times New Roman";
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#title
+{
+  width: 200px;
+  font-size: 20px;
+}
+
+#description
+{
+  width: 200px;
+  font-size: 20px;
+}
+
+ul
+{
+    list-style-type: none;
+
+}
