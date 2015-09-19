@@ -2,7 +2,6 @@ function ShoppingListItem(name, description){
   this.name = name;
   this.description = description;
   this.is_done = false;
-  this.count = 0;
 }
 
 ShoppingListItem.prototype.check = function() {
@@ -14,9 +13,6 @@ ShoppingListItem.prototype.uncheck = function() {
 };
 
 ShoppingListItem.prototype.render = function(idx) {
-  count = idx;
-  console.log(count);
-  return '<li class="completed_' + this.is_done + ' "><input type="checkbox" \
-  name="box" onchange="changeCheckedStatus(idx, checkbox)"><span> ' + this.name + ' \
-  </span><span> ' + this.description + ' </span><button onclick="removeItemButtonClicked(idx)">X</button></li>';
+  return '<li id="test" class="completed_' + this.is_done + ' "><input id="list_check_' + idx + '" type="checkbox" onchange="changeCheckedStatus(' + idx + ')"><span> ' + this.name + ' \
+  </span><span> ' + this.description + ' </span><button type="button" onclick="removeItemButtonClicked(' + idx + ')">X</button></li>';
 };

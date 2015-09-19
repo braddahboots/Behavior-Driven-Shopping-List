@@ -1,6 +1,6 @@
 function ShoppingList(items){
   this.items = [];
-  // console.log("hello",this.items);
+  console.log("hello",this.items);
 }
 ShoppingList.prototype.addItem = function(obj) {
   if(!(obj instanceof ShoppingListItem)) {
@@ -24,12 +24,11 @@ ShoppingList.prototype.removeItem = function(obj) {
 };
 
 ShoppingList.prototype.render = function() {
-
   var listItems = [];
-  // console.log(listItems);
+  // console.log('this is what you want',listItems);
   for(var i = 0; i < this.items.length; i++) {
     listItems.push(this.items[i].render(i));
-    // console.log(listItems.push(this.items[i].render()));
+    console.log("maybe here",listItems);
   }
   var strList = listItems.join(' ');
   console.log(strList);

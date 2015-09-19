@@ -24,23 +24,32 @@ function add_to_shopping_list() {
   document.getElementById('content').innerHTML = list;
 }
 
-function changeCheckedStatus(idx, checkbox) {
-  //some variable
-  //need to find index of idx which is the argument being passed into the function
-  if(checkbox === true) {
-    this.check();
+function changeCheckedStatus(idx) {
+  //Get the DOM index of the current object
+  var index = document.getElementById("list_check_" + idx);
+
+  //assigns the current object to a variable
+  var curItem = safeWay.items[idx];
+
+  //if box is checked, invoke check method
+  if(index.checked) {
+    curItem.check();
   } else {
-    this.uncheck();
+    curItem.uncheck();
   }
 
-  var list = safway.redner();
+  var list = safeWay.render();
 }
 
-function removeItemButtonClick(idx) {
-  //some variable
-  //need to find index of idx which is the argument being passed into the function
-  this.removeItem(idx);
+function removeItemButtonClicked(idx) {
+  //Get the DOM index of the currnet object
+  console.log(idx);
 
-  var list = safway.redner();
+
+  var curItem = safeWay.items[idx];
+  safeWay.removeItem(curItem);
+
+  var list = safeWay.render();
+  document.getElementById('content').innerHTML = list;
 }
 
